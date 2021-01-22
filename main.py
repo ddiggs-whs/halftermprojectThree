@@ -13,6 +13,10 @@ top = 50
 width = 10
 height = 40
 
+# Here is a change I would make
+
+
+
 while True:
 
     for event in pygame.event.get():
