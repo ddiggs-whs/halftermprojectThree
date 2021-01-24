@@ -1,32 +1,51 @@
+import sys
+
 import pygame
-# asdfa
-pygame.init()
 
-DISPLAY = pygame.display.set_mode([800, 600])
-FPSCLOCK = pygame.time.Clock()
+WINDOWWIDTH = 800
+WINDOWHEIGHT = 600
+WINDOWSIZE = [WINDOWWIDTH, WINDOWHEIGHT]
 
+FPS = 30
 
-black = (0, 0, 0)
-white = (255, 255, 255)
-left = 50
-top = 50
-width = 10
-height = 40
-
-# Here is a change I would makecfhy
-# asdasd
+# Classes Go Here
+from classes import MyCharacter, MyEnemy, Attack
 
 
-while True:
+# Main Loop Code Go Here
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            quit()
+def main():
+    global WINDOWSIZE, DISPLAYSURF, FPSCLOCK, FONT
+    pygame.init()
+    FONT = pygame.font.SysFont('Georgia', 25, True, False)
+    DISPLAYSURF = pygame.display.set_mode(WINDOWSIZE)
+    FPSCLOCK = pygame.time.Clock()
 
-    DISPLAY.fill(black)
-    pygame.draw.rect(DISPLAY, white, [left, top, width, height])
+    # Initializations go here
 
-    left += 5
+    while True:
+        for event in pygame.event.get():
+            # Controls go here
+            if event.type == pygame.KEYDOWN:
+                pass
+            if event.type == pygame.KEYUP:
+                pass
+            if event.type == pygame.QUIT:
+                custom_quit()
+        DISPLAYSURF.fill(DISPLAYSURF.fill(pygame.color.Color('red')))
 
-    pygame.display.update()
-    FPSCLOCK.tick(30)
+        # Update positions
+        # Drawing new objects go here
+
+        FPSCLOCK.tick(FPS)
+        pygame.display.flip()
+
+
+# Additional Modules go here
+def custom_quit():
+    pygame.quit()
+    sys.exit()
+
+
+if __name__ == '__main__':
+    main()
